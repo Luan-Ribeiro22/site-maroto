@@ -1,31 +1,87 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
+    <!-- Meta Tags Essenciais -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pratopronto | Pizzaria</title>
+    <meta name="description" content="Pratopronto - Pizzaria artesanal com sabores criativos, ingredientes frescos e entrega rápida. Peça sua pizza deliciosa agora!" />
+    <meta name="theme-color" content="#FF6B35" />
+    
+    <!-- Open Graph para Redes Sociais -->
+    <meta property="og:type" content="business.business" />
+    <meta property="og:title" content="Pratopronto | Pizzaria Artesanal" />
+    <meta property="og:description" content="Pizza quentinha pronta para você! Ingredientes frescos e entrega ágil." />
+    <meta property="og:url" content="https://pratopronto.com.br" />
+    <meta property="og:site_name" content="Pratopronto" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75'>🍕</text></svg>" />
+    
+    <title>Pratopronto | Pizzaria Artesanal</title>
+    
+    <!-- Estilos -->
     <link rel="stylesheet" href="style.css" />
+    
+    <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- JSON-LD Structured Data para SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "LocalBusiness",
+      "name": "Pratopronto",
+      "image": "https://pratopronto.com.br/logo.png",
+      "description": "Pizzaria artesanal com ingredientes frescos e entrega rápida",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua das Pizzas, 123",
+        "addressLocality": "Centro",
+        "addressCountry": "BR"
+      },
+      "telephone": "+55 41 99518-6379",
+      "priceRange": "R$ 39,90 - R$ 49,90",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "18:00",
+          "closes": "23:30"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Sunday",
+          "opens": "17:00",
+          "closes": "23:00"
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
+    <!-- Skip Navigation (acessibilidade) -->
+    <a href="#main-content" class="skip-nav">Pular para o conteúdo principal</a>
+    
     <header class="site-header">
       <div class="wrapper header-top">
         <div class="brand">
           <span class="brand__badge">Prato</span>
           <span class="brand__name">pronto</span>
         </div>
-        <nav class="nav">
+        <nav class="nav" aria-label="Navegação principal">
           <a href="#inicio">Início</a>
           <a href="#cardapio">Cardápio</a>
           <a href="#sobre">Sobre</a>
+          <a href="#horarios">Horários</a>
           <a href="#contato">Contato</a>
         </nav>
       </div>
     </header>
 
-    <main>
+    <main id="main-content">
+      <!-- Hero Section -->
       <section class="hero" id="inicio">
         <div class="wrapper hero-content">
           <div class="hero-text">
@@ -38,7 +94,7 @@
             </div>
           </div>
           <div class="hero-card">
-            <div class="hero-card__circle">🍕</div>
+            <div class="hero-card__circle" aria-label="Pizza Maroto">🍕</div>
             <div class="hero-card__info">
               <p class="hero-card__label">Destaque do dia</p>
               <h2>Pizza Maroto</h2>
@@ -48,6 +104,7 @@
         </div>
       </section>
 
+      <!-- Cardápio Section -->
       <section class="section" id="cardapio">
         <div class="wrapper">
           <div class="section-header">
@@ -58,22 +115,33 @@
             <article class="card">
               <h3>Clássica Mussarela</h3>
               <p>Massa crocante, molho tradicional e queijo derretido na medida certa.</p>
-              <span>R$ 39,90</span>
+              <div class="card-footer">
+                <span class="price">R$ 39,90</span>
+                <span class="size-hint">35 cm</span>
+              </div>
             </article>
             <article class="card">
               <h3>Calabresa Especial</h3>
               <p>Fatias generosas de calabresa, cebola, azeitonas e cheiro-verde.</p>
-              <span>R$ 45,90</span>
+              <div class="card-footer">
+                <span class="price">R$ 45,90</span>
+                <span class="size-hint">35 cm</span>
+              </div>
             </article>
             <article class="card">
               <h3>Veggie Gourmet</h3>
               <p>Berinjela, abobrinha, tomate-cereja, rúcula e muçarela vegan.</p>
-              <span>R$ 49,90</span>
+              <div class="card-footer">
+                <span class="price">R$ 49,90</span>
+                <span class="size-hint">35 cm</span>
+              </div>
             </article>
           </div>
+          <p class="cardapio-note">✨ Confira nosso cardápio completo com mais 10+ sabores deliciosos!</p>
         </div>
       </section>
 
+      <!-- Sobre nós Section -->
       <section class="section section--highlight" id="sobre">
         <div class="wrapper about-grid">
           <div>
@@ -83,21 +151,46 @@
           </div>
           <div class="feature-list">
             <div class="feature-item">
-              <h3>Ingredientes frescos</h3>
+              <h3>🌱 Ingredientes frescos</h3>
               <p>Produtos escolhidos diariamente para receitas saborosas e naturais.</p>
             </div>
             <div class="feature-item">
-              <h3>Entrega ágil</h3>
+              <h3>⚡ Entrega ágil</h3>
               <p>Rápido e sempre quente, direto para sua casa ou escritório.</p>
             </div>
             <div class="feature-item">
-              <h3>Atendimento local</h3>
+              <h3>👥 Atendimento local</h3>
               <p>Equipe dedicada para garantir sua melhor experiência em cada pedido.</p>
             </div>
           </div>
         </div>
       </section>
 
+      <!-- Horários Section -->
+      <section class="section" id="horarios">
+        <div class="wrapper">
+          <div class="section-header">
+            <span>Horários</span>
+            <h2>Nossos horários de funcionamento</h2>
+          </div>
+          <div class="hours-grid">
+            <div class="hours-card">
+              <h3>Segunda a Sábado</h3>
+              <p class="hours-time">18:00 - 23:30</p>
+            </div>
+            <div class="hours-card">
+              <h3>Domingo</h3>
+              <p class="hours-time">17:00 - 23:00</p>
+            </div>
+            <div class="hours-card">
+              <h3>Tempo de entrega</h3>
+              <p class="hours-time">30 - 45 minutos</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contato Section -->
       <section class="section" id="contato">
         <div class="wrapper contact-grid">
           <div>
@@ -106,10 +199,56 @@
             <p>Estamos prontos para atender seu pedido via WhatsApp ou telefone. Aproveite promoções e combos exclusivos.</p>
           </div>
           <div class="contact-card">
-            <p><strong>Telefone:</strong> (41) 99518-6379</p>
-            <p><strong>WhatsApp:</strong> (41) 99518-6379</p>
-            <p><strong>Endereço:</strong> Rua das Pizzas, 123 - Centro</p>
-            <a class="button button--primary" href="https://wa.me/5541995186379" target="_blank" rel="noreferrer">Pedir pelo WhatsApp</a>
+            <div class="contact-info">
+              <p>
+                <strong>📞 Telefone:</strong> 
+                <a href="tel:+5541995186379">(41) 99518-6379</a>
+              </p>
+              <p>
+                <strong>💬 WhatsApp:</strong> 
+                <a href="https://wa.me/5541995186379" target="_blank" rel="noopener noreferrer">(41) 99518-6379</a>
+              </p>
+              <p>
+                <strong>📍 Endereço:</strong> 
+                <a href="https://maps.google.com/?q=Rua+das+Pizzas+123+Centro" target="_blank" rel="noopener noreferrer">
+                  Rua das Pizzas, 123 - Centro
+                </a>
+              </p>
+              <p class="payment-info">
+                <strong>💳 Formas de pagamento:</strong> 
+                Dinheiro, PIX, Cartão de crédito/débito
+              </p>
+            </div>
+            <a class="button button--primary button--large" href="https://wa.me/5541995186379" target="_blank" rel="noopener noreferrer">
+              🍕 Pedir pelo WhatsApp
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials Section (Opcional - para futuro) -->
+      <section class="section" id="avaliacoes">
+        <div class="wrapper">
+          <div class="section-header">
+            <span>Avaliações</span>
+            <h2>O que nossos clientes dizem</h2>
+          </div>
+          <div class="testimonials-grid">
+            <div class="testimonial">
+              <p class="stars">⭐⭐⭐⭐⭐</p>
+              <p>"Melhor pizza que já comi! Massa crocante, recheio generoso e chegou quentinha."</p>
+              <p class="author">- Maria S.</p>
+            </div>
+            <div class="testimonial">
+              <p class="stars">⭐⭐⭐⭐⭐</p>
+              <p>"Entrega super rápida e o atendimento foi excelente. Voltarei com certeza!"</p>
+              <p class="author">- João P.</p>
+            </div>
+            <div class="testimonial">
+              <p class="stars">⭐⭐⭐⭐⭐</p>
+              <p>"A Pizza Veggie Gourmet é simplesmente deliciosa. Recomendo para todos!"</p>
+              <p class="author">- Ana L.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -117,7 +256,29 @@
 
     <footer class="site-footer">
       <div class="wrapper footer-content">
-        <p>Pratopronto © 2026 | Pizzaria artesanal com sabor caseiro.</p>
+        <div class="footer-section">
+          <h3>Pratopronto</h3>
+          <p>Pizzaria artesanal com sabor caseiro.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Links rápidos</h3>
+          <ul>
+            <li><a href="#cardapio">Cardápio</a></li>
+            <li><a href="#sobre">Sobre nós</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Redes sociais</h3>
+          <ul>
+            <li><a href="https://instagram.com/pratopronto" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li><a href="https://facebook.com/pratopronto" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+          </ul>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Pratopronto - Todos os direitos reservados</p>
+          <p><small>Desenvolvido com ❤️</small></p>
+        </div>
       </div>
     </footer>
   </body>
