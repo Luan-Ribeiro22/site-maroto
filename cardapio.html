@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Cardápio | Pratopronto</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    let carrinho = [];
+
+    function adicionarAoCarrinho(nome, preco) {
+      carrinho.push({ nome, preco });
+      alert(`${nome} foi adicionado ao carrinho!`);
+      atualizarCarrinho();
+    }
+
+    function atualizarCarrinho() {
+      const lista = document.getElementById("lista-carrinho");
+      lista.innerHTML = "";
+      carrinho.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = `${item.nome} - R$ ${item.preco}`;
+        lista.appendChild(li);
+      });
+    }
+
+    function finalizarPedido() {
+      localStorage.setItem("carrinho", JSON.stringify(carrinho));
+      window.location.href = "pagamento.html";
+    }
+  </script>
+</head>
+<body>
+  <main class="section">
+    <div class="wrapper">
+      <h2>Cardápio</h2>
+      <div class="cards-grid">
+        <article class="card" onclick="adicionarAoCarrinho('Clássica Mussarela', 39.90)">
+          <h3>Clássica Mussarela</h3>
+          <p>Massa crocante, molho tradicional e queijo derretido.</p>
+          <span>R$ 39,90</span>
+        </article>
+        <article class="card" onclick="adicionarAoCarrinho('Calabresa Especial', 45.90)">
+          <h3>Calabresa Especial</h3>
+          <p>Fatias generosas de calabresa, cebola e azeitonas.</p>
+          <span>R$ 45,90</span>
+        </article>
+        <article class="card" onclick="adicionarAoCarrinho('Veggie Gourmet', 49.90)">
+          <h3>Veggie Gourmet</h3>
+          <p>Berinjela, abobrinha, tomate-cereja e muçarela vegan.</p>
+          <span>R$ 49,90</span>
+        </article>
+        <article class="card" onclick="adicionarAoCarrinho('Frango com Catupiry', 47.90)">
+          <h3>Frango com Catupiry</h3>
+          <p>Frango desfiado, catupiry cremoso e tempero especial.</p>
+          <span>R$ 47,90</span>
+        </article>
+        <article class="card" onclick="adicionarAoCarrinho('Quatro Queijos', 52.90)">
+          <h3>Quatro Queijos</h3>
+          <p>Mussarela, gorgonzola, parmesão e provolone.</p>
+          <span>R$ 52,90</span>
+        </article>
+      </div>
+
+      <h2>Refrigerantes</h2>
+      <div class="cards-grid">
+        <article class="card" onclick="adicionarAoCarrinho('Coca-Cola 2L', 12.90)">
+          <h3>Coca-Cola 2L</h3>
+          <p>Clássico refrigerante gelado.</p>
+          <span>R$ 12,90</span>
+        </article>
+        <article class="card" onclick="adicionarAoCarrinho('Guaraná 2L', 10.90)">
+          <h3>Guaraná 2L</h3>
+          <p>Refrescante e brasileiro.</p>
+          <span>R$ 10,90</span>
+        </article>
+        <article class="card" onclick="adicionarAoCarrinho('Sprite 2L', 11.90)">
+          <h3>Sprite 2L</h3>
+          <p>Limão gelado e leve.</p>
+          <span>R$ 11,90</span>
+        </article>
+      </div>
+
+      <h2>🛒 Carrinho</h2>
+      <ul id="lista-carrinho"></ul>
+      <button class="button button--primary" onclick="finalizarPedido()">Finalizar Pedido</button>
+    </div>
+  </main>
+</body>
+</html>

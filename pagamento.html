@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Pagamento | Pratopronto</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    window.onload = function() {
+      const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+      const lista = document.getElementById("pedido");
+      carrinho.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = `${item.nome} - R$ ${item.preco}`;
+        lista.appendChild(li);
+      });
+    }
+  </script>
+</head>
+<body>
+  <main class="section">
+    <div class="wrapper">
+      <h2>Finalize seu pedido</h2>
+      <h3>Itens escolhidos:</h3>
+      <ul id="pedido"></ul>
+      <form class="contact-card" action="/pagamento" method="POST">
+        <label>Nome completo</label>
+        <input type="text" name="nome" required>
+        <label>Endereço</label>
+        <input type="text" name="endereco" required>
+        <label>Forma de pagamento</label>
+        <select name="forma">
+          <option>Cartão de crédito</option>
+          <option>Pix</option>
+          <option>Dinheiro na entrega</option>
+        </select>
+        <button class="button button--primary" type="submit">Confirmar</button>
+      </form>
+    </div>
+  </main>
+</body>
+</html>
+<input type="hidden" name="itens" id="itens">
+<script>
+  window.onload = function() {
+    const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+    const lista = document.getElementById("pedido");
+    carrinho.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = `${item.nome} - R$ ${item.preco}`;
+      lista.appendChild(li);
+    });
+    // envia carrinho como JSON no formulário
+    document.getElementById("itens").value = JSON.stringify(carrinho);
+  }
+</script>
