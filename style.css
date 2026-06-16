@@ -3,7 +3,7 @@
   --bg: #120702;
   --surface: #1c0f0c;
   --surface-strong: #2f1410;
-  --text: #f8efe5;
+  --text: #c8b4a8;
   --muted: #c8b4a8;
   --accent: #ff6b35;
   --accent-soft: #f9a774;
@@ -18,11 +18,22 @@
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background: radial-gradient(circle at top left, rgba(255, 107, 53, 0.20), transparent 32%),
+
+  background-image:
+    radial-gradient(circle at top left, rgba(255, 107, 53, 0.20), transparent 32%),
     radial-gradient(circle at bottom right, rgba(255, 166, 116, 0.14), transparent 30%),
-    var(--bg);
+    url("IMG/papel.png");
+  background-repeat: no-repeat, no-repeat, repeat;
+  background-size: 32% 32%, 30% 30%, auto;
+  background-position: top left, bottom right, center;
+  background-attachment: fixed;
   color: var(--text);
   min-height: 100vh;
+}
+.principal {
+    background: transparent;
+    align-items: center;
+    text-align: center;
 }
 
 img {
@@ -90,7 +101,7 @@ a {
 }
 
 .hero {
-  padding: 4rem 0 3rem;
+  padding: 2rem 0 3rem;
 }
 
 .hero-content {
@@ -154,13 +165,13 @@ a {
 }
 
 .hero-card {
-  background: linear-gradient(180deg, rgba(255, 107, 53, 0.15), rgba(255, 255, 255, 0.04));
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(10deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.04));
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: var(--radius);
   padding: 2rem;
   display: grid;
   gap: 1.5rem;
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(5px) brightness(20%) saturate(40%);
 }
 
 .hero-card__circle {
